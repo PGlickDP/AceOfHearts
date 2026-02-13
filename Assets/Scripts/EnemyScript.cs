@@ -7,7 +7,7 @@ public class EnemyScript : MonoBehaviour
     public GameObject player;
     public float speed;
     public GameObject projectile;
-    public float fireRate = 0.5f;
+    public float fireRate;
     public float nextFire;
     public GameObject shootPoint;
     //public float bulletSpeed;
@@ -24,11 +24,24 @@ public class EnemyScript : MonoBehaviour
         float distance = (Vector2.Distance(player.transform.position, transform.position));
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed);
 
-        nextFire += Time.deltaTime;
-        if(nextFire > 2f)
+        if (gameObject.CompareTag("Fan"))
         {
-            nextFire = 0;
-            Shoot();
+            nextFire += Time.deltaTime;
+            if (nextFire > fireRate)
+            {
+                nextFire = 0;
+                Shoot();
+            }
+        }
+
+        if(gameObject.CompareTag("Fan Four"))
+        {
+            nextFire += Time.deltaTime;
+            if (nextFire > fireRate)
+            {
+                nextFire = 0;
+                ShootFour();
+            }
         }
 
     }
@@ -37,6 +50,11 @@ public class EnemyScript : MonoBehaviour
     public void Shoot()
     {
         Instantiate(projectile, shootPoint.transform.position, Quaternion.identity);
+    }
+
+    public void ShootFour()
+    {
+
     }
 
 
