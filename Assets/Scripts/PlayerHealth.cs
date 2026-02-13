@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI; // <-- Needed for Image
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class PlayerHealth : MonoBehaviour
     public float damageCooldown = 0.5f;      // Time between allowed hits
     public float flashDuration = 0.1f;       // Flash time on hit
     public Color flashColor = Color.red;
+
+    [Header("UI Feedback")]
+    public HealthUI healthUI; // drag your HealthUI component here
+    public Color uiFlashColor = Color.red;
+    public float uiFlashDuration = 0.1f;
 
     private float damageCooldownTimer = 0f;
     private SpriteRenderer spriteRenderer;
@@ -64,8 +70,26 @@ public class PlayerHealth : MonoBehaviour
 
     private System.Collections.IEnumerator DamageFlash()
     {
+        // Flash player sprite
         spriteRenderer.color = flashColor;
-        yield return new WaitForSeconds(flashDuration);
+
+        // Flash UI face if assigned
+        if (healthUI != null && healthUI.faceImage != null)
+        {
+            Image faceImg = healthUI.faceImage;
+            Color originalFaceColor = faceImg.color;
+            faceImg.color = uiFlashColor;
+
+            yield return new WaitForSeconds(flashDuration);
+
+            faceImg.color = originalFaceColor;
+        }
+        else
+        {
+            yield return new WaitForSeconds(flashDuration);
+        }
+
+        // Reset player sprite
         spriteRenderer.color = originalColor;
     }
 
