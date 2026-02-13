@@ -47,7 +47,12 @@ public class ProjectileScript : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Shield"))
         {
-            //Deal damage to the player
+            //Deal damage to the shield
+            Destroy(gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Bodyguard"))
+        {
             Destroy(gameObject);
         }
     }
