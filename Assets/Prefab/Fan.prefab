@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8150382399853092210}
   m_Layer: 0
   m_Name: Fan
-  m_TagString: Untagged
+  m_TagString: Fan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,9 +173,12 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 0.001
   projectile: {fileID: 4063990235343822809, guid: fefb2f146afc0a14086fdc6ae212b1a4, type: 3}
-  fireRate: 1
+  fireRate: 10
   nextFire: 1
   shootPoint: {fileID: 5418682072868318051}
+  type: 
+  loopA: 0
+  loopB: 0
 --- !u!1 &5418682072868318051
 GameObject:
   m_ObjectHideFlags: 0
