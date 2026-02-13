@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayGame()
     {
-        StartCoroutine(FadeAndLoad("MainScene"));
+        StartCoroutine(FadeAndLoad("EnemyTest"));
     }
 
     public void ShowCredits()
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        StartCoroutine(FadeAndLoad("MainMenuScene"));
+        StartCoroutine(FadeAndLoad("Main Menu"));
     }
 
     // -------------------------
