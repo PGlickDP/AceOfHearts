@@ -45,6 +45,11 @@ public class ProjectileScript : MonoBehaviour
             //Deal damage to the player
             Destroy(gameObject);
         }
+        if (other.gameObject.CompareTag("Shield"))
+        {
+            //Deal damage to the player
+            Destroy(gameObject);
+        }
     }
 
     public void ShootOnce()
