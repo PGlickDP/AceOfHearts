@@ -55,6 +55,13 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void AddHealth(int amount)
+    {
+        currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        Debug.Log("Health Added! Current Health: " + currentHealth);
+    }
+
     private System.Collections.IEnumerator DamageFlash()
     {
         spriteRenderer.color = flashColor;
