@@ -1,32 +1,59 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Needed for loading scenes
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("UI References")]
-    public GameObject mainMenuCanvas; // Drag MainMenuCanvas here
+    [Header("UI Panels")]
+    public GameObject mainMenuPanel;
+    public GameObject creditsPanel;
+    public GameObject gameOverPanel; // Add reference to GameOverPanel
 
-    // Call this from PlayButton
+    // -------------------------
+    // Main Menu Functions
+    // -------------------------
     public void PlayGame()
     {
         Debug.Log("Play button pressed");
-        // Load the main gameplay scene
-        SceneManager.LoadScene("MainScene"); // Replace "MainScene" with your gameplay scene name
+        SceneManager.LoadScene("MainScene"); // Replace with your gameplay scene
     }
 
-    // Call this from CreditsButton
     public void ShowCredits()
     {
-        Debug.Log("Credits button pressed");
-        // For simplicity, just log or open another UI panel
-        // You can also load a Credits scene if you have one
-        // SceneManager.LoadScene("CreditsScene");
+        creditsPanel.SetActive(true);
+        mainMenuPanel.SetActive(false);
     }
 
-    // Optional: Exit game
+    public void CloseCredits()
+    {
+        creditsPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
+    }
+
     public void QuitGame()
     {
         Debug.Log("Quit button pressed");
         Application.Quit();
+    }
+
+    // -------------------------
+    // Game Over Functions
+    // -------------------------
+    public void ShowGameOver()
+    {
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
+    }
+
+    public void RetryGame()
+    {
+        // Reload the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenuScene"); // Replace with your main menu scene
     }
 }

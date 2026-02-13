@@ -94,10 +94,17 @@ public class PlayerHealth : MonoBehaviour
     }
 
     void Die()
+{
+    Debug.Log("Player Died");
+    gameObject.SetActive(false);
+
+    // Show Game Over screen
+    GameManager gm = FindObjectOfType<GameManager>();
+    if (gm != null)
     {
-        Debug.Log("Player Died");
-        gameObject.SetActive(false);
+        gm.ShowGameOver();
     }
+}
 
     public int GetCurrentHealth()
     {
