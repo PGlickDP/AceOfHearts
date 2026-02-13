@@ -11,6 +11,7 @@ public class Collectible : MonoBehaviour
     public GameObject player;
     public GameObject shieldObject;
     public ShieldPower ShieldPower;
+    public BodyguardScript BodyguardScript;
     void Start()
     {
         
@@ -43,7 +44,11 @@ public class Collectible : MonoBehaviour
                 ShieldPower.shieldOn = true;
                 Destroy(gameObject);
             }
-
+            if (bodyguard)
+            {
+                BodyguardScript.bgON = true;
+                Destroy(gameObject);
+            }
 
         }
     }
