@@ -313,6 +313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fan
       objectReference: {fileID: 0}
+    - target: {fileID: 2437850339519756362, guid: 59cf122f1de027d41a6bee714657e7ad, type: 3}
+      propertyPath: m_TagString
+      value: Fan
+      objectReference: {fileID: 0}
     - target: {fileID: 7100209399292838530, guid: 59cf122f1de027d41a6bee714657e7ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -34
@@ -357,15 +361,85 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2011444230}
+    - target: {fileID: 8150382399853092210, guid: 59cf122f1de027d41a6bee714657e7ad, type: 3}
+      propertyPath: fireRate
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59cf122f1de027d41a6bee714657e7ad, type: 3}
+--- !u!1001 &8455309420474575615
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 194948804441144092, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34
+      objectReference: {fileID: 0}
+    - target: {fileID: 194948804441144092, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -17.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 194948804441144092, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 194948804441144092, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 194948804441144092, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 194948804441144092, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 194948804441144092, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 194948804441144092, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 194948804441144092, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 194948804441144092, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185768157375901391, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2011444230}
+    - target: {fileID: 4503478918622488060, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
+      propertyPath: m_Name
+      value: Fan - 4 Way
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503478918622488060, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
+      propertyPath: m_TagString
+      value: Fan Four
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1188211119}
   - {fileID: 641923215930521870}
+  - {fileID: 8455309420474575615}
   - {fileID: 2011444232}
