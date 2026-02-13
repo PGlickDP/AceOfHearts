@@ -12,6 +12,7 @@ public class Collectible : MonoBehaviour
     public GameObject shieldObject;
     public ShieldPower ShieldPower;
     public BodyguardScript BodyguardScript;
+    public PlayerHealth PlayerHealth;
     void Start()
     {
         
@@ -47,6 +48,11 @@ public class Collectible : MonoBehaviour
             if (bodyguard)
             {
                 BodyguardScript.bgON = true;
+                Destroy(gameObject);
+            }
+            if (healthUp)
+            {
+                PlayerHealth.currentHealth++;
                 Destroy(gameObject);
             }
 

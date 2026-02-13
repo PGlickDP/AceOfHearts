@@ -26,8 +26,9 @@ public class BodyguardScript : MonoBehaviour
     {
         if (bgON)
         {
-            Debug.Log("a");
+            //Debug.Log("a");
             int random = Random.Range(0, 3);
+            //Debug.Log("Num " + random + ".");
             bgs[random].SetActive(true);
             StartCoroutine(guardMe());
 

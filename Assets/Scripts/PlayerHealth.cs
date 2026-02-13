@@ -5,7 +5,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [Header("Health Settings")]
     public int maxHealth = 6;
-    private int currentHealth;
+    public int currentHealth;
 
     [Header("Damage Feedback")]
     public float damageCooldown = 0.5f;      // Time between allowed hits
