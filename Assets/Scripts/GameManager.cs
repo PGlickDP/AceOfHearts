@@ -1,20 +1,34 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
     [Header("UI Panels")]
     public GameObject mainMenuPanel;
     public GameObject creditsPanel;
-    public GameObject gameOverPanel; // Add reference to GameOverPanel
+    public GameObject gameOverPanel;
+
+    [Header("Fade Settings")]
+    public CanvasGroup fadeCanvasGroup;   // Assign FadePanel CanvasGroup
+    public float fadeDuration = 1f;
+
+    void Start()
+    {
+        // Fade in when scene starts
+        if (fadeCanvasGroup != null)
+        {
+            StartCoroutine(FadeIn());
+        }
+    }
 
     // -------------------------
     // Main Menu Functions
     // -------------------------
+
     public void PlayGame()
     {
-        Debug.Log("Play button pressed");
-        SceneManager.LoadScene("MainScene"); // Replace with your gameplay scene
+        StartCoroutine(FadeAndLoad("MainScene"));
     }
 
     public void ShowCredits()
@@ -31,13 +45,13 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("Quit button pressed");
         Application.Quit();
     }
 
     // -------------------------
     // Game Over Functions
     // -------------------------
+
     public void ShowGameOver()
     {
         if (gameOverPanel != null)
@@ -48,12 +62,46 @@ public class GameManager : MonoBehaviour
 
     public void RetryGame()
     {
-        // Reload the current scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(FadeAndLoad(SceneManager.GetActiveScene().name));
     }
 
     public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene("MainMenuScene"); // Replace with your main menu scene
+        StartCoroutine(FadeAndLoad("MainMenuScene"));
+    }
+
+    // -------------------------
+    // Fade Logic
+    // -------------------------
+
+    IEnumerator FadeIn()
+    {
+        float timer = 0f;
+        fadeCanvasGroup.alpha = 1f;
+
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            fadeCanvasGroup.alpha = 1f - (timer / fadeDuration);
+            yield return null;
+        }
+
+        fadeCanvasGroup.alpha = 0f;
+    }
+
+    IEnumerator FadeAndLoad(string sceneName)
+    {
+        float timer = 0f;
+
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            fadeCanvasGroup.alpha = timer / fadeDuration;
+            yield return null;
+        }
+
+        fadeCanvasGroup.alpha = 1f;
+
+        SceneManager.LoadScene(sceneName);
     }
 }
