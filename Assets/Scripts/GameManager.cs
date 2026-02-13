@@ -1,32 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
     [Header("UI Panels")]
     public GameObject mainMenuPanel;
     public GameObject creditsPanel;
-    public GameObject gameOverPanel; // Reference to GameOverPanel
-
-    [Header("Fade Settings")]
-    public float fadeDuration = 1f; // seconds
-
-    private CanvasGroup gameOverCanvasGroup;
-
-    void Awake()
-    {
-        // Setup GameOver CanvasGroup
-        if (gameOverPanel != null)
-        {
-            gameOverCanvasGroup = gameOverPanel.GetComponent<CanvasGroup>();
-            if (gameOverCanvasGroup == null)
-                gameOverCanvasGroup = gameOverPanel.AddComponent<CanvasGroup>();
-
-            gameOverCanvasGroup.alpha = 0f;
-            gameOverPanel.SetActive(false); // hide at start
-        }
-    }
+    public GameObject gameOverPanel; // Add reference to GameOverPanel
 
     // -------------------------
     // Main Menu Functions
@@ -39,20 +19,14 @@ public class GameManager : MonoBehaviour
 
     public void ShowCredits()
     {
-        if (creditsPanel != null && mainMenuPanel != null)
-        {
-            creditsPanel.SetActive(true);
-            mainMenuPanel.SetActive(false);
-        }
+        creditsPanel.SetActive(true);
+        mainMenuPanel.SetActive(false);
     }
 
     public void CloseCredits()
     {
-        if (creditsPanel != null && mainMenuPanel != null)
-        {
-            creditsPanel.SetActive(false);
-            mainMenuPanel.SetActive(true);
-        }
+        creditsPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
     }
 
     public void QuitGame()
@@ -69,35 +43,12 @@ public class GameManager : MonoBehaviour
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(true);
-            StartCoroutine(FadeInGameOver());
         }
-    }
-
-    private IEnumerator FadeInGameOver()
-    {
-        float timer = 0f;
-
-        if (gameOverCanvasGroup == null)
-            yield break;
-
-        gameOverCanvasGroup.alpha = 0f;
-        gameOverCanvasGroup.interactable = false;
-        gameOverCanvasGroup.blocksRaycasts = false;
-
-        while (timer < fadeDuration)
-        {
-            timer += Time.unscaledDeltaTime; // works even if Time.timeScale = 0
-            gameOverCanvasGroup.alpha = Mathf.Clamp01(timer / fadeDuration);
-            yield return null;
-        }
-
-        gameOverCanvasGroup.alpha = 1f;
-        gameOverCanvasGroup.interactable = true;
-        gameOverCanvasGroup.blocksRaycasts = true;
     }
 
     public void RetryGame()
     {
+        // Reload the current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

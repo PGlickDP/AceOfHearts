@@ -1006,7 +1006,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   mainMenuPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
-  gameOverPanel: {fileID: 0}
 --- !u!4 &1219987648
 Transform:
   m_ObjectHideFlags: 0
