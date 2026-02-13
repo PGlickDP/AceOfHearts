@@ -1,3 +1,4 @@
+using System.Net.Sockets;
 using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
@@ -5,20 +6,27 @@ public class ProjectileScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public GameObject player;
+    
     public Rigidbody2D rb;
     public float force;
     public float timer;
+    
     void Start()
     {
+       
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
-        Vector2 direction = player.transform.position - transform.position;
-        rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * force;
+        if (gameObject.CompareTag("Fan"))
+        {
+            ShootOnce();
+        }
+        if(gameObject.CompareTag("Fan Four"))
+        {
+            ShootFour();
+        }
 
-        float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rot+90);
     }
-
+       
     // Update is called once per frame
     void Update()
     {
@@ -38,5 +46,26 @@ public class ProjectileScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void ShootOnce()
+    {
+
+        Vector2 direction = player.transform.position - transform.position;
+        rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * force;
+
+        float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rot + 90);
+    }
+
+   public void ShootFour()
+    {
+        Vector2 direction = player.transform.position - transform.position;
+        rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * force;
+
+        float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rot + 90);
+
+    }
+    
 
 }

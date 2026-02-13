@@ -380,7 +380,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 194948804441144092, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -34
+      value: -29.32
       objectReference: {fileID: 0}
     - target: {fileID: 194948804441144092, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
       propertyPath: m_LocalPosition.y
@@ -425,6 +425,10 @@ PrefabInstance:
     - target: {fileID: 4503478918622488060, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
       propertyPath: m_Name
       value: Fan - 4 Way
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503478918622488060, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4503478918622488060, guid: 72deb647a6b7caf4f927e3cfc69fc720, type: 3}
       propertyPath: m_TagString

@@ -10,6 +10,11 @@ public class EnemyScript : MonoBehaviour
     public float fireRate;
     public float nextFire;
     public GameObject shootPoint;
+    public string type;
+    Quaternion Up = Quaternion.LookRotation(Vector2.up);
+    Quaternion Down = Quaternion.LookRotation(Vector2.down);
+    Quaternion Left = Quaternion.LookRotation(Vector2.left);
+    Quaternion Right = Quaternion.LookRotation(Vector2.right);
     //public float bulletSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -49,12 +54,17 @@ public class EnemyScript : MonoBehaviour
 
     public void Shoot()
     {
-        Instantiate(projectile, shootPoint.transform.position, Quaternion.identity);
+        GameObject shot = Instantiate(projectile, shootPoint.transform.position, Quaternion.identity);
+        
     }
 
     public void ShootFour()
     {
-
+        
+        /*GameObject sOne = Instantiate(projectile, shootPoint.transform.position, Up);
+        GameObject sTwo = Instantiate(projectile, shootPoint.transform.position, Right);
+        GameObject sThree = Instantiate(projectile, shootPoint.transform.position, Down);
+        GameObject sFour = Instantiate(projectile, shootPoint.transform.position, Left);*/
     }
 
 
