@@ -22,20 +22,29 @@ public class Collectible : MonoBehaviour
         
     }
 
-    public void OnCollisionEnter2D(Collision2D other)
+    /*public void OnCollisionEnter2D(Collision2D other)
     {
 
         Debug.Log("aaaaa");
+        Destroy(gameObject);
+       
+        
+    }*/
+
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("TOUCH");
+            //Debug.Log("TOUCH");
             if (shield)
             {
                 ShieldPower.shieldOn = true;
+                Destroy(gameObject);
             }
 
-            Destroy(gameObject);
+
         }
-        
     }
 }

@@ -28,7 +28,7 @@ public class ShieldPower : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    /*private void OnCollisionEnter2D(Collision2D other)
     {
         if (shieldOn)
         {
@@ -39,7 +39,16 @@ public class ShieldPower : MonoBehaviour
 
         }
         
+    }*/
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (shieldOn)
+        {
+
+            ShieldHealth--;
+            
+
+        }
     }
-
-
 }
